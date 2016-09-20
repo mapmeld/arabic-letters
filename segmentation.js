@@ -23,24 +23,26 @@ var colors = ['red', 'orange', 'green', 'blue', 'purple'];
 function processWord(word) {
   var oldWidth = 0;
 
-  for (var w = 0; (w + 1) < word.length + 1; w++) {
+  for (var w = 0; w < word.length; w++) {
     clear();
     ctx.fillStyle = colors[w % colors.length];
     ctx2.fillStyle = colors[w % colors.length];
 
+    var addChar = 'ر';
+    var addCharWidth = 0; ctx.measureText(addChar).width / 2;
+
     // even though Arabic is right-to-left
     // the X coordinate is the left-most point of the word or character
-    ctx.fillText(word.substring(0, w + 1), 10, 70);
+    ctx.fillText(word.substring(0, w + 1) + addChar, 10, 70);
 
-    var newWidth = ctx.measureText(word.substring(0, w + 1)).width;
-
+    var newWidth = ctx.measureText(word.substring(0, w + 1) + addChar).width;
+    var oldWidth = ctx.measureText(word.substring(0, w)).width;
     ctx2.fillText(word.substring(0, w), 10 + newWidth - oldWidth, 70);
-    oldWidth = newWidth;
 
     var lastChars = ctx2.getImageData(0, 0, 300, 140).data;
     var newChars = ctx.getImageData(0, 0, 300, 140).data;
 
-    for (var x = 299; x >= 0; x--) {
+    for (var x = 100; x > 44 + addCharWidth; x--) {
       for (var y = 0; y < 140; y++) {
         var r = lastChars[(y * 300 + x) * 4];
         var g = lastChars[(y * 300 + x) * 4 + 1];
