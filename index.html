@@ -4,6 +4,9 @@
     <meta charset="utf-8"/>
     <title>Arabic Segmentation</title>
     <style>
+      body {
+        font-family: sans-serif;
+      }
       canvas {
         border: 1px solid #000;
       }
@@ -15,6 +18,11 @@
   <body>
     <canvas id="staging" width="300" height="140"></canvas>
     <canvas id="staging2" width="300" height="140"></canvas>
+    <br/>
+    <div class="border">
+      <input id="wordEntry"/>
+      <button id="try">Try</button>
+    </div>
     <br/>
     <canvas id="canvas" width="300" height="140"></canvas>
     <script src="segmentation.js"></script>
