@@ -5,26 +5,20 @@
     <title>Arabic Segmentation</title>
     <style>
       body {
-        font-family: sans-serif;
+        font-family: arial;
       }
-      canvas {
-        border: 1px solid #000;
-      }
-      #staging, #staging2 {
-        display: none;
+      #output {
+        font-size: 60pt;
       }
     </style>
   </head>
   <body>
-    <canvas id="staging" width="300" height="140"></canvas>
-    <canvas id="staging2" width="300" height="140"></canvas>
-    <br/>
     <div class="border">
       <input id="wordEntry"/>
       <button id="try">Try</button>
     </div>
     <br/>
-    <canvas id="canvas" width="300" height="140"></canvas>
+    <div id="output"></div>
     <script src="segmentation.js"></script>
   </body>
 </html>
